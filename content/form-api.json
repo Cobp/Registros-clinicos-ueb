@@ -1,0 +1,762 @@
+{
+  "form": {
+    "title": "Formulario Integral de Anamnesis y Evaluación Clínica",
+    "description": "Detección temprana de lesiones sospechosas y factores de riesgo asociados a cáncer bucal",
+    "steps": [
+      {
+        "step": 2,
+        "title": "Datos de Identificación",
+        "fields": [
+          {
+            "id": "fecha_consulta",
+            "label": "Fecha de consulta",
+            "type": "date",
+            "input": "textbox",
+            "placeholder": "DD / MM / AAAA"
+          },
+          {
+            "id": "nombre_completo",
+            "label": "Nombre completo",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "ci_dni",
+            "label": "C.I. / DNI",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "fecha_nacimiento",
+            "label": "Fecha de nacimiento",
+            "type": "date",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "edad",
+            "label": "Edad",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["18-44", "45-59", "60-74", ">75"]
+          },
+          {
+            "id": "sexo",
+            "label": "Sexo",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["Femenino", "Masculino", "Otro"]
+          },
+          {
+            "id": "ocupacion",
+            "label": "Ocupación",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Carpintero", "Ebanista", "Armador de Muebles",
+              "Operador de máquina de Corte", "Lijador y Barnizador",
+              "Pintor", "Soldador", "Tapicero", "Diseñador",
+              "Vendedor", "Despachador"
+            ]
+          },
+          {
+            "id": "estado_civil",
+            "label": "Estado Civil",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["Casado", "Soltero"]
+          },
+          {
+            "id": "telefono",
+            "label": "Teléfono",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "direccion_residencia",
+            "label": "Dirección de residencia",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "contacto_emergencia",
+            "label": "Contacto de emergencia",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "telefono_emergencia",
+            "label": "Teléfono de emergencia",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": ""
+          },
+          {
+            "id": "nivel_academico",
+            "label": "Nivel académico",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Primario", "Secundario", "Bachiller",
+              "Universitario", "Licenciado/Técnico medio", "Maestría/Doctorado"
+            ]
+          }
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Motivo de Consulta",
+        "fields": [
+          {
+            "id": "motivo_consulta",
+            "label": "Motivo de consulta",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Control de rutina / Prevención",
+              "Dolor oral",
+              "Lesión visible",
+              "Sangrado espontáneo o provocado",
+              "Dificultad para masticar",
+              "Dificultad para deglutir (Disfagia)",
+              "Cambio en la voz o ronquera",
+              "Otro"
+            ]
+          },
+          {
+            "id": "motivo_consulta_otro",
+            "label": "Otro motivo (especifique)",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "motivo_consulta", "value": "Otro" }
+          }
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Factores de Riesgo Presentes",
+        "fields": [
+          {
+            "id": "factores_riesgo_presentes",
+            "label": "¿Presenta algún factor de riesgo?",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": ["Consumo de coca", "Bebidas alcohólicas", "Tabaco", "Ninguno"]
+          }
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Hábitos y Factores de Riesgo",
+        "fields": [
+          {
+            "id": "tabaco_consume",
+            "label": "¿Consume tabaco / vapeo?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "tabaco_cigarrillos_dia",
+            "label": "Número de cigarrillos al día",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", "3", "4", ">5"],
+            "conditional": { "field": "tabaco_consume", "value": "Sí" }
+          },
+          {
+            "id": "tabaco_tiempo_consumo",
+            "label": "Tiempo de consumo de tabaco",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "tabaco_consume", "value": "Sí" }
+          },
+          {
+            "id": "alcohol_consume",
+            "label": "¿Consume alcohol?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "alcohol_veces_semana",
+            "label": "Veces a la semana que consume alcohol",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", "3", "4", ">5"],
+            "conditional": { "field": "alcohol_consume", "value": "Sí" }
+          },
+          {
+            "id": "alcohol_tiempo_consumo",
+            "label": "Tiempo de consumo de alcohol",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "alcohol_consume", "value": "Sí" }
+          },
+          {
+            "id": "sol_exposicion",
+            "label": "¿Se expone al sol entre 10am y 4pm?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sol_veces_semana",
+            "label": "Veces a la semana de exposición solar",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", "3", "4", ">5"],
+            "conditional": { "field": "sol_exposicion", "value": "Sí" }
+          },
+          {
+            "id": "sol_horas_exposicion",
+            "label": "Horas de exposición solar",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1-2", "3-4", "5-6", ">6"],
+            "conditional": { "field": "sol_exposicion", "value": "Sí" }
+          },
+          {
+            "id": "coca_consume",
+            "label": "¿Consume hoja de coca?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "coca_veces_semana",
+            "label": "Veces a la semana que consume coca",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", "3", "4", ">5"],
+            "conditional": { "field": "coca_consume", "value": "Sí" }
+          },
+          {
+            "id": "coca_tiempo_consumo",
+            "label": "Tiempo de consumo de coca",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["<1 año", ">1 año"],
+            "conditional": { "field": "coca_consume", "value": "Sí" }
+          },
+          {
+            "id": "coca_agregados",
+            "label": "¿Usa agregados/aditivos con la coca?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_consume", "value": "Sí" }
+          },
+          {
+            "id": "coca_bicarbonato",
+            "label": "Aditivo: Bicarbonato",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_agregados", "value": "Sí" }
+          },
+          {
+            "id": "coca_cafe",
+            "label": "Aditivo: Café",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_agregados", "value": "Sí" }
+          },
+          {
+            "id": "coca_energizante",
+            "label": "Aditivo: Energizante",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_agregados", "value": "Sí" }
+          },
+          {
+            "id": "coca_saborizante",
+            "label": "Aditivo: Saborizante",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_agregados", "value": "Sí" }
+          },
+          {
+            "id": "coca_estevia",
+            "label": "Aditivo: Estevia",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"],
+            "conditional": { "field": "coca_agregados", "value": "Sí" }
+          },
+          {
+            "id": "coca_lugar_compra",
+            "label": "Lugar de compra de coca",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "coca_consume", "value": "Sí" }
+          }
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Historia de la Enfermedad Actual",
+        "fields": [
+          {
+            "id": "sintoma_ulcera",
+            "label": "Úlcera o herida que no cicatriza (>2 semanas)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_leucoplasia",
+            "label": "Mancha blanca (leucoplasia)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_eritroplasia",
+            "label": "Mancha roja (eritroplasia)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_mancha_oscura",
+            "label": "Mancha oscura o pigmentada",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_masa_bulto",
+            "label": "Masa, bulto o tumoración",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_dolor_persistente",
+            "label": "Dolor persistente",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_sangrado_espontaneo",
+            "label": "Sangrado espontáneo",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_disfagia",
+            "label": "Disfagia (dificultad al tragar)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_odinofagia",
+            "label": "Odinofagia (dolor al tragar)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_adormecimiento",
+            "label": "Adormecimiento (lengua / labios)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_movilidad_dental",
+            "label": "Movilidad dental sin causa",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_halitosis",
+            "label": "Halitosis (mal aliento) persistente",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_trismo",
+            "label": "Trismo (dificultad para abrir boca)",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "sintoma_ninguno",
+            "label": "Ninguno",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "fecha_inicio_aproximada",
+            "label": "Fecha de inicio aproximada",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["<3 meses", ">3 meses"]
+          },
+          {
+            "id": "evolucion",
+            "label": "Evolución",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["Constante", "Intermitente", "Progresiva"]
+          },
+          {
+            "id": "intensidad_dolor_eva",
+            "label": "Intensidad del dolor (Escala EVA del 1 al 10)",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+          },
+          {
+            "id": "factores_alivian_empeoran",
+            "label": "Factores que alivian o empeoran",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": ["Beber", "Comer", "Hablar", "Ninguno"]
+          },
+          {
+            "id": "tratamientos_previos",
+            "label": "¿Ha recibido tratamientos previos para este problema?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Autoevaluación del Paciente",
+        "fields": [
+          {
+            "id": "zonas_lesiones",
+            "label": "¿Ha notado lesiones, bultos o cambios recientes en alguna de las siguientes zonas?",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Lengua", "Encías", "Paladar (duro o blando)",
+              "Piso de la boca", "Labios y comisuras",
+              "Cara interna de las mejillas", "Dientes", "Ninguna"
+            ]
+          },
+          {
+            "id": "tipo_cambio_notado",
+            "label": "Si marcó alguna zona, ¿qué cambios notó?",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Cambio de color", "Cambio de tamaño",
+              "Cambio de forma", "Aumento de volumen", "Ninguno"
+            ]
+          }
+        ]
+      },
+      {
+        "step": 7,
+        "title": "Examen Clínico-Físico",
+        "fields": [
+          {
+            "id": "labios_comisuras",
+            "label": "Labios y Comisuras",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Sin alteraciones",
+              "Eritema, resequedad o fisuras leves",
+              "Úlcera, placa blanca/roja o induración localizada",
+              "Lesión ulcerada extensa, sangrado espontáneo o masa sospechosa"
+            ]
+          },
+          {
+            "id": "mucosa_bucal",
+            "label": "Mucosa Bucal (Mejillas)",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Mucosa sana",
+              "Irritación o eritema leve",
+              "Leucoplasia, eritroplasia o ulceración localizada",
+              "Lesión infiltrativa, extensa o sospecha de malignidad"
+            ]
+          },
+          {
+            "id": "lengua",
+            "label": "Lengua",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Normal",
+              "Saburra o irritación leve",
+              "Úlcera persistente, placa blanca/roja o induración",
+              "Masa, lesión infiltrativa o limitación de movilidad"
+            ]
+          },
+          {
+            "id": "encias_rebordes",
+            "label": "Encías y Rebordes",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Encía sana",
+              "Gingivitis o inflamación leve",
+              "Ulceración, aumento de volumen o lesión queratósica",
+              "Lesión proliferativa, sangrado o destrucción tisular"
+            ]
+          },
+          {
+            "id": "paladar_duro_blando",
+            "label": "Paladar Duro y Blando",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Sin alteraciones",
+              "Eritema o irritación leve",
+              "Placa blanca/roja, úlcera o petequias",
+              "Lesión infiltrativa, perforación o masa sospechosa"
+            ]
+          },
+          {
+            "id": "piso_boca",
+            "label": "Piso de Boca",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "Normal",
+              "Eritema leve",
+              "Úlcera, placa o induración localizada",
+              "Masa infiltrativa o lesión extensa"
+            ]
+          },
+          {
+            "id": "cadenas_ganglionares",
+            "label": "Cadenas Ganglionares",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": [
+              "No palpables o normales",
+              "Ganglios móviles menores de 1 cm",
+              "Adenopatías dolorosas o aumentadas de tamaño",
+              "Ganglios duros, fijos o múltiples (sospecha metastásica)"
+            ]
+          }
+        ]
+      },
+      {
+        "step": 8,
+        "title": "Antecedentes Personales",
+        "fields": [
+          {
+            "id": "antecedentes_personales",
+            "label": "Antecedentes personales",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Cáncer oral previo",
+              "Lesión por más de 14 días",
+              "Virus del Papiloma Humano (VPH)",
+              "Diabetes mellitus",
+              "Hipertensión arterial",
+              "Inmunosupresión (VIH, trasplantes, quimioterapia)",
+              "Otras enfermedades sistémicas",
+              "Ninguna",
+              "Desconoce"
+            ]
+          },
+          {
+            "id": "otras_enfermedades_sistemicas",
+            "label": "Otras enfermedades sistémicas (especifique)",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "antecedentes_personales", "value": "Otras enfermedades sistémicas" }
+          },
+          {
+            "id": "vacuna_vph",
+            "label": "Vacuna contra el Virus del Papiloma Humano (VPH)",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["Vacunado", "No vacunado", "Desconoce"]
+          },
+          {
+            "id": "practicas_sexuales_orales",
+            "label": "Prácticas sexuales orales sin protección",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "medicamentos_actuales",
+            "label": "¿Toma medicamentos actualmente?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "medicamentos_cuales",
+            "label": "¿Cuáles medicamentos?",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "medicamentos_actuales", "value": "Sí" }
+          },
+          {
+            "id": "alergias",
+            "label": "¿Tiene alergias (fármacos, alimentos, insectos)?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "alergias_cuales",
+            "label": "¿A qué es alérgico?",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "alergias", "value": "Sí" }
+          }
+        ]
+      },
+      {
+        "step": 9,
+        "title": "Antecedentes Familiares",
+        "fields": [
+          {
+            "id": "antecedentes_familiares",
+            "label": "Antecedentes familiares",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Historia familiar de cáncer oral",
+              "Enfermedades hereditarias relevantes (Anemia de Fanconi, disqueratosis congénita)",
+              "Ninguna",
+              "Desconoce"
+            ]
+          },
+          {
+            "id": "cancer_oral_parentesco",
+            "label": "Parentesco (historia familiar de cáncer oral)",
+            "type": "string",
+            "input": "textbox",
+            "placeholder": "",
+            "conditional": { "field": "antecedentes_familiares", "value": "Historia familiar de cáncer oral" }
+          }
+        ]
+      },
+      {
+        "step": 10,
+        "title": "Antecedentes Odontológicos y Hábitos Orales",
+        "fields": [
+          {
+            "id": "ultima_consulta_dental",
+            "label": "Última consulta dental",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["<1 año", ">1 año"]
+          },
+          {
+            "id": "motivo_ultima_consulta",
+            "label": "Motivo de la última consulta dental",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": ["Sangrado", "Dolor", "Inflamación", "Lesión"]
+          },
+          {
+            "id": "higiene_oral",
+            "label": "Higiene oral",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["Buena", "Regular", "Mala"]
+          },
+          {
+            "id": "frecuencia_cepillado",
+            "label": "Frecuencia de cepillado al día",
+            "type": "select_one",
+            "input": "checkbox",
+            "options": ["1", "2", ">2"]
+          },
+          {
+            "id": "uso_hilo_dental",
+            "label": "¿Usa hilo dental?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          },
+          {
+            "id": "uso_enjuague",
+            "label": "¿Usa enjuague bucal?",
+            "type": "bool",
+            "input": "checkbox",
+            "options": ["Sí", "No"]
+          }
+        ]
+      },
+      {
+        "step": 11,
+        "title": "Impresión Diagnóstica",
+        "fields": [
+          {
+            "id": "impresion_diagnostica",
+            "label": "Impresión diagnóstica",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Úlcera",
+              "Mancha blanca (Leucoplasia)",
+              "Mancha roja (Eritroplasia)",
+              "Bulto",
+              "Adenopatía",
+              "Eritroleucoplasia",
+              "VPH",
+              "Liquen plano oral",
+              "Ninguno / Estado Bucal Normal"
+            ]
+          }
+        ]
+      },
+      {
+        "step": 12,
+        "title": "Plan de Acción y Tratamiento",
+        "fields": [
+          {
+            "id": "plan_accion",
+            "label": "Plan de acción y tratamiento",
+            "type": "select_many",
+            "input": "checkbox",
+            "options": [
+              "Observación y control a corto plazo",
+              "Observación y control a largo plazo",
+              "Supresión de factores irritantes",
+              "Derivación a especialista (para toma de biopsia y estudios complementarios)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "field_types": {
+    "string": "Campo de texto libre — usar <input type='text'> o <textarea>",
+    "bool": "Respuesta Sí/No — usar dos <input type='checkbox'> o radio buttons",
+    "select_one": "Selección única entre opciones — usar radio buttons o checkboxes exclusivos",
+    "select_many": "Selección múltiple — usar <input type='checkbox'> por cada opción"
+  }
+}
