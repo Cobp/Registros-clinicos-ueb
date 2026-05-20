@@ -3,7 +3,7 @@ import { routerLinks } from "@/content/router-links";
 
 export default function SideBar() {
   return (
-    <aside className="relative col-span-1 row-span-3 rounded-xl h-full">
+    <aside data-slot="sidebar" className="lg:relative lg:col-span-1 lg:row-span-3 hidden lg:block rounded-xl h-full">
       <div className="sticky top-4 z-10">
         <div className="flex items-center h-12 bg-secondary mb-4 rounded-xl col-primary p-2.5 gap-2.5">
           <svg
@@ -16,9 +16,9 @@ export default function SideBar() {
             <path d="M0 0h24v24H0z" fill="none" />
             <path
               fill="currentColor"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-7-3a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-3 11.5a8.46 8.46 0 0 0 4.807-1.489c.604-.415.862-1.205.51-1.848C16.59 15.83 15.09 15 12 15s-4.59.83-5.318 2.163c-.351.643-.093 1.433.511 1.848A8.46 8.46 0 0 0 12 20.5"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <p className="flex flex-col text-xs">
